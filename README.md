@@ -13,13 +13,13 @@
 MIT ![licence icon](https://img.shields.io/badge/License-MIT-lavender.svg)
 
 ## 🚀 Project Details
-Utilizing Node.js and MySQL I developed a node.js command line application  that allows users to perform queries on a database with tables that contain an employee's information. [Demo link]( https://drive.google.com/file/d/18DZBZOALBeu5lyjRoxA3ygT-aUR3BYWl/view)
+Utilizing Express.js I created a RESTful API which utilized Sequelize to interact with a MySQL database. [Demo link]( https://drive.google.com/file/d/18DZBZOALBeu5lyjRoxA3ygT-aUR3BYWl/view)
 
 ## 👩‍💻 Usage Information
-This application allows a user to make queries easily within the command line.
+This application allows a user to create get, post, put, and delete requests to a MySQL database.
 
 ## 💻 Installation Instructions
-In order to run this application the user needs to install the npm package and run node index.js in the command line.
+In order to run this application the user needs to install the npm package and run ```npm run seed``` in the command line and then ```npm start```.
 
 ## 🤝 Contribution Guidelines
 As of now there are no plans for other developers to contribute to this repository.
@@ -33,6 +33,6 @@ If you have any further questions please reach out.
 
 Email: jeanette.k.ralph@gmail.com 
 
-GitHub link: [Employee Tracker Repository](https://github.com/Jeanette-Ralph/Employee-Tracker)
+GitHub link: [E-Commerce Back End](https://github.com/Jeanette-Ralph/E-Commerce-Back-End)
 
 GitHub username: [Jeanette-Ralph ](https://github.com/Jeanette-Ralph)
