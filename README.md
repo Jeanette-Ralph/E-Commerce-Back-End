@@ -13,7 +13,7 @@
 MIT ![licence icon](https://img.shields.io/badge/License-MIT-lavender.svg)
 
 ## 🚀 Project Details
-Utilizing Express.js I created a RESTful API which utilized Sequelize to interact with a MySQL database. [Demo link]( https://drive.google.com/file/d/18DZBZOALBeu5lyjRoxA3ygT-aUR3BYWl/view)
+Utilizing Express.js I created a RESTful API which utilized Sequelize to interact with a MySQL database. [Demo link](https://drive.google.com/file/d/1qX0IVQUSzBtvGgRdSvmgfazaIpJhSIX9/view)
 
 ## 👩‍💻 Usage Information
 This application allows a user to create get, post, put, and delete requests to a MySQL database.
