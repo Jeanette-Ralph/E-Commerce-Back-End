@@ -4,12 +4,12 @@ const { Product, Category, Tag, ProductTag } = require('../../models');
 // The `/api/products` endpoint
 
 // get all products
-router.get('/', (req, res) => {
+router.get('/', async (req, res) => {
   // find all products
   // be sure to include its associated Category and Tag data
   try {
     const productData = await Product.findAll({
-      include: [{ model: Category, model: Tag, model: ProductTag }],
+      include: [{ model: Category, model: Tag, through: ProductTag }],
     });
 
     res.status(200).json(productData);
@@ -21,13 +21,13 @@ router.get('/', (req, res) => {
 });
 
 // get one product
-router.get('/:id', (req, res) => {
+router.get('/:id', async (req, res) => {
   // find a single product by its `id`
   // be sure to include its associated Category and Tag data
 
   try {
     const productData = await Product.findByPk(req.params.id, {
-      include: [{ model: Category, model: Tag, model: ProductTag }]
+      include: [{ model: Category, model: Tag, through: ProductTag }]
     })
 
     if (!productData) {
@@ -77,16 +77,20 @@ router.post('/', (req, res) => {
 // update product
 router.put('/:id', (req, res) => {
   // update product data
+  console.log('Hello world');
   Product.update(req.body, {
     where: {
       id: req.params.id,
     },
   })
     .then((product) => {
+      console.log('inside first .then');
       // find all associated tags from ProductTag
       return ProductTag.findAll({ where: { product_id: req.params.id } });
     })
     .then((productTags) => {
+
+      console.log('inside second .then');
       // get list of current tag_ids
       const productTagIds = productTags.map(({ tag_id }) => tag_id);
       // create filtered list of new tag_ids
@@ -109,14 +113,17 @@ router.put('/:id', (req, res) => {
         ProductTag.bulkCreate(newProductTags),
       ]);
     })
-    .then((updatedProductTags) => res.json(updatedProductTags))
+    .then((updatedProductTags) => {
+      console.log('inside third .then');
+      return res.json(updatedProductTags)
+    })
     .catch((err) => {
-      // console.log(err);
+      console.log(err);
       res.status(400).json(err);
     });
 });
 
-router.delete('/:id', (req, res) => {
+router.delete('/:id', async (req, res) => {
   // delete one product by its `id` value
   try {
     const productData = await Product.destroy({
